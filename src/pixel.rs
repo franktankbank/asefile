@@ -188,7 +188,7 @@ impl RawPixels {
 impl Pixels {
     // Returns a Borrowed Cow if the Pixels struct already contains Rgba pixels.
     // Otherwise clones them to create an Owned Cow.
-    pub(crate) fn clone_as_image_rgba(&self) -> Cow<Vec<image::Rgba<u8>>> {
+    pub(crate) fn clone_as_image_rgba(&self) -> Cow<'_, Vec<image::Rgba<u8>>> {
         match self {
             Pixels::Rgba(rgba) => Cow::Borrowed(rgba),
             Pixels::Grayscale(grayscale) => {
